@@ -11,3 +11,5 @@ mongoose.connect(process.env.DATABASE, {
 mongoose.connection.on("connected", function() {
   console.log("Mongoose connected to the database!");
 })
+
+module.exports.User = require("./user.js");
