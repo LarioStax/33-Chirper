@@ -2,6 +2,7 @@ const express = require("express")
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const dotenv = require("dotenv").config();
 
 const errorHandler = require("./handlers/error.js");
 
