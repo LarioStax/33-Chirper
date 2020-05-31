@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv").config();
 
 const authRoutes = require("./routes/auth.js");
+const messagesRoutes = require("./routes/messages.js");
 
 const errorHandler = require("./handlers/error.js");
 
@@ -16,6 +17,7 @@ app.get("/", function(req, res, next) {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/users/:id/messages", messagesRoutes);
 
 app.use(function (req, res, next) {
   const err = new Error("Not Found!");
