@@ -13,3 +13,4 @@ mongoose.connection.on("connected", function() {
 })
 
 module.exports.User = require("./user.js");
+module.exports.Message = require("./message.js");
