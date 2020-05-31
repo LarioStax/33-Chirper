@@ -4,6 +4,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv").config();
 
+const authRoutes = require("./routes/auth.js");
+
 const errorHandler = require("./handlers/error.js");
 
 app.use(cors());
@@ -12,6 +14,8 @@ app.use(bodyParser.json());
 app.get("/", function(req, res, next) {
   res.json("Connected");
 });
+
+app.use("/api/auth", authRoutes);
 
 app.use(function (req, res, next) {
   const err = new Error("Not Found!");
