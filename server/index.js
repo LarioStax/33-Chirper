@@ -7,17 +7,18 @@ const dotenv = require("dotenv").config();
 const authRoutes = require("./routes/auth.js");
 const messagesRoutes = require("./routes/messages.js");
 
+const { loginRequired, ensureCorrectUser } = require(".middleware/auth.js");
 const errorHandler = require("./handlers/error.js");
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get("/", function(req, res, next) {
+app.get("/", function (req, res, next) {
   res.json("Connected");
 });
 
 app.use("/api/auth", authRoutes);
-app.use("/api/users/:id/messages", messagesRoutes);
+app.use("/api/users/:id/messages", loginRequired, ensureCorrectUser, messagesRoutes);
 
 app.use(function (req, res, next) {
   const err = new Error("Not Found!");
