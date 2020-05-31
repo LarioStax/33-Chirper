@@ -7,7 +7,7 @@ const dotenv = require("dotenv").config();
 const authRoutes = require("./routes/auth.js");
 const messagesRoutes = require("./routes/messages.js");
 
-const { loginRequired, ensureCorrectUser } = require(".middleware/auth.js");
+const { loginRequired, ensureCorrectUser } = require("./middleware/auth.js");
 const errorHandler = require("./handlers/error.js");
 
 app.use(cors());
