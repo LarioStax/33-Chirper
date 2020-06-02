@@ -21,12 +21,12 @@ class Navbar extends Component {
             </Link>
           </div>
           {this.props.currentUser.isAuthenticated ? (
-            <ul class="nav navbar-nav navbar-right">
+            <ul className="nav navbar-nav navbar-right">
               <li>
-                <Link to={`/users/${this.props.currentUser.user._id}/messages/new`}>New Message</Link>
+                <Link to={`/users/${this.props.currentUser.user.id}/messages/new`}>New Message</Link>
               </li>
               <li>
-                <a onClick={this.logout}>Log out</a>
+                <a href="/" onClick={this.logout}>Log out</a>
               </li>
             </ul>
           ) : (

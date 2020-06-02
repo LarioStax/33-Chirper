@@ -5,7 +5,6 @@ import "./Homepage.css";
 import MessageTimeLine from "./MessageTimeLine.js";
 
 const Homepage = ({ currentUser }) => {
-  console.log(currentUser);
   if (!currentUser.isAuthenticated) {
     return (
       <div className="home-hero">
