@@ -19,7 +19,7 @@ const Homepage = ({ currentUser }) => {
   }
   return (
     <div>
-      <MessageTimeLine />
+      <MessageTimeLine profileImageUrl={currentUser.user.profileImageUrl} username={currentUser.user.username}/>
     </div>
   )
 }
