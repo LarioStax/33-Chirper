@@ -18,14 +18,11 @@ export default function withAuth(ComponentToBeRendered) {
       return <ComponentToBeRendered {...this.props} />
     }
   }
-}
-
-function mapStateToProps(state) {
-  return {
-    isAuthenticated: state.currentUser.isAuthenticated
+  function mapStateToProps(state) {
+    return {
+      isAuthenticated: state.currentUser.isAuthenticated
+    }
   }
+  
+  return connect(mapStateToProps)(Authenticate);
 }
-
-return connect(mapStateToProps)(Authenticate);
-
-export default withAuth;
