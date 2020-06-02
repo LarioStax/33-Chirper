@@ -16,9 +16,10 @@ class AuthForm extends Component {
   handleSubmit = function (e) {
     e.preventDefault();
     const authType = this.props.signUp ? "signup" : "login";
-    this.props.onAuth(authType, this.state)
+    this.props
+      .onAuth(authType, this.state)
       .then(() => {
-        console.log("LOGGED IN");
+        this.props.history.push("/");
       })
       .catch(() => {
         return;
@@ -35,9 +36,12 @@ class AuthForm extends Component {
     const { email, username, password, profileImageUrl } = this.state;
     const { heading, buttonText, signUp, errors, history, removeError } = this.props;
 
-    history.listen(()=> {
-      removeError();
-    })
+    if (errors.message) {
+      const unlisten = history.listen(() => {
+        removeError()
+        unlisten()
+      })
+    }
 
     return (
       <div>

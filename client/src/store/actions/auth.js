@@ -1,6 +1,6 @@
 import { apiCall } from "../../services/api.js";
 import { SET_CURRENT_USER } from "../actionTypes.js";
-import {addError, removeError } from "./errors.js";
+import { addError, removeError } from "./errors.js";
 
 export function setCurrentUser(user) {
   return {

@@ -8,12 +8,15 @@ import { authUser } from "../store/actions/auth.js";
 import { removeError } from "../store/actions/errors.js"
 
 const Main = props => {
-  const { authUser, errors, removeError } = props;
+  const { authUser, errors, removeError, currentUser } = props;
   return (
     <div className="container">
       <Switch>
         <Route exact path="/" render={(props) => (
-          <Homepage {...props} />
+          <Homepage
+            {...props}
+            currentUser={currentUser}
+          />
         )} />
         <Route exact path="/login" render={(props) => (
           <AuthForm
