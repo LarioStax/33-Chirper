@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./Homepage.css";
+import MessageTimeLine from "./MessageTimeLine.js";
 
 const Homepage = ({ currentUser }) => {
   console.log(currentUser);
@@ -18,7 +19,7 @@ const Homepage = ({ currentUser }) => {
   }
   return (
     <div>
-      <h1>You're logged in :O </h1>
+      <MessageTimeLine />
     </div>
   )
 }
