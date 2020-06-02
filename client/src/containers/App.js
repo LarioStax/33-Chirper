@@ -5,8 +5,20 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import Navbar from "./Navbar.js";
 import Main from "./Main.js";
+import { setAuthorizationToken, setCurrentUser } from '../store/actions/auth';
+import jwtDecode from "jwt-decode";
 
 const store = configureStore();
+
+if (localStorage.jwtToken) {
+  setAuthorizationToken(localStorage.jwtToken);
+  //prevent someone from manually tampering with the key of jwtToken in localStorage
+  try {
+    store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)))
+  } catch (err) {
+    store.dispatch(setCurrentUser({}));
+  }
+}
 
 class App extends Component {
   render() {
