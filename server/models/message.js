@@ -25,7 +25,7 @@ messageSchema.pre("remove", async function (next) {
   //return next
   try {
     let user = await User.findById(this.user);
-    user.message.remove(this.id); //remove is a mongoose synchronous method
+    user.messages.remove(this.id); //remove is a mongoose synchronous method
     await user.save();
     return next();
   } catch (err) {
